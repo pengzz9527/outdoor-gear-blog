@@ -1,0 +1,125 @@
+baseURL: "https://outdoor-gear-blog.vercel.app/"
+title: "户外装备实验室"
+theme: "stack"
+defaultContentLanguage: "zh"
+defaultContentLanguageInSubdir: true
+enableRobotsTXT: true
+hasCJKLanguage: true
+
+languages:
+  zh:
+    contentDir: "content/zh"
+    label: "中文"
+    locale: "zh-CN"
+    weight: 1
+    title: "户外装备实验室"
+    description: "露营帐篷、睡袋、炉具深度评测，冷门小众垂钓装备实战对比。不吹不黑，只说真话。"
+    params:
+      sidebar:
+        subtitle: "露营装备 · 垂钓工具 · 深度评测 · 真实体验"
+    menu:
+      main:
+        - identifier: home
+          name: "首页"
+          url: "/zh/"
+          weight: 10
+        - identifier: post
+          name: "文章"
+          url: "/zh/post/"
+          weight: 20
+        - identifier: categories
+          name: "分类"
+          url: "/zh/categories/"
+          weight: 30
+        - identifier: tags
+          name: "标签"
+          url: "/zh/tags/"
+          weight: 40
+        - identifier: search
+          name: "搜索"
+          url: "/zh/search/"
+          weight: 50
+        - identifier: about
+          name: "关于"
+          url: "/zh/about/"
+          weight: 60
+
+mainSections:
+  - "post"
+
+params:
+  author: "户外装备君"
+  description: "露营帐篷、睡袋、炉具深度评测，冷门小众垂钓装备实战对比。"
+  footer:
+    since: 2026
+    customText: '<a href="/zh/privacy/">隐私政策</a> · <a href="/zh/terms/">服务条款</a>'
+  sidebar:
+    compact: false
+    avatar: ""
+  article:
+    readingTime: true
+    toc: true
+    math: false
+    headingAnchor: false
+    list:
+      showTags: true
+    license:
+      enabled: true
+      default: "Licensed under CC BY-NC-SA 4.0"
+  widgets:
+    homepage:
+      - type: search
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 20
+    page:
+      - type: profile
+      - type: toc
+  search:
+    enabled: true
+    provider: "fuse"
+    fuse:
+      isCaseSensitive: false
+      threshold: 0.4
+      distance: 100
+  colorScheme:
+    toggle: true
+    default: "auto"
+  comments:
+    enabled: false
+
+permalinks:
+  post: "/:section/:slug/"
+
+taxonomies:
+  category: categories
+  tag: tags
+
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+  term:
+    - HTML
+    - RSS
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
